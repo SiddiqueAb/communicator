@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Communicator</title>
+    <!-- Tailwind CSS via CDN (no build step required) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: '#3b82f6',
+            },
+            animation: {
+              'pulse-ring': 'pulseRing 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite',
+            },
+            keyframes: {
+              pulseRing: {
+                '0%':  { transform: 'scale(0.95)', opacity: '0.7' },
+                '70%': { transform: 'scale(1.25)', opacity: '0' },
+                '100%':{ transform: 'scale(1.25)', opacity: '0' },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Scrollbar customisation */
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 3px; }
+
+      /* Prevent layout shift when videos load */
+      video { object-fit: cover; background: #111827; }
+    </style>
+  </head>
+  <body class="h-full bg-gray-950">
+    <div id="app" class="h-full"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
