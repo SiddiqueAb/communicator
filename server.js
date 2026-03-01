@@ -104,6 +104,13 @@ io.on('connection', (socket) => {
   });
 });
 
+// ─── Serve built frontend ─────────────────────────────────────────────────────
+const distPath = path.join(__dirname, 'client', 'dist');
+app.use(express.static(distPath));
+app.get('*', (_req, res) => {
+  res.sendFile(path.join(distPath, 'index.html'));
+});
+
 // ─── Start ────────────────────────────────────────────────────────────────────
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
